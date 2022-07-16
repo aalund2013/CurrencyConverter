@@ -1,17 +1,51 @@
 
 // include api for currency change
-const api = "https://api.exchangerate-api.com/v4/latest/USD";// when user clicks, it calls function getresults
+const base_api_url = "https://api.exchangerate-api.com/v6";// when user clicks, it calls function getResults
+
 convert.addEventListener("click", getResults);
 
-// function getresults
-function getResults() {
-	fetch(`${api}`)
-		.then(currency => {
-			return currency.json();
-		}).then(displayResults);
+// function getCurrencies
+function getCurrencies() {
+	const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': '77b84280a7msh7f71046025a9fcap133d5djsnff7dc983b150',
+			'X-RapidAPI-Host': 'currency-converter5.p.rapidapi.com'
+		}
+	};
+
+	fetch('https://currency-converter5.p.rapidapi.com/currency/list', options)
+		.then(response => response.json())
+		.then(response => console.log(response))
+		.catch(err => console.error(err));
+	return response;
 }
 
-// display results after convertion
+// function getResults
+function getResults(from, to, amount) {
+	const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': '77b84280a7msh7f71046025a9fcap133d5djsnff7dc983b150',
+			'X-RapidAPI-Host': 'currency-converter5.p.rapidapi.com'
+		}
+	};
+	fetchUrl = 'https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from='+from+'&to='+to+'&amount='+amount
+	
+	fetch(fetchUrl, options)
+		.then(response => response.json())
+		.then(response => console.log(response))
+		.catch(err => console.error(err));
+}
+
+// function getResults() {
+// 	fetch(`${api}`)
+// 		.then(currency => {
+// 			return currency.json();
+// 		}).then(displayResults);
+// }
+
+// display results after conversion
 function displayResults(currency) {
 	let fromRate = currency.rates[resultFrom];
 	let toRate = currency.rates[resultTo];
