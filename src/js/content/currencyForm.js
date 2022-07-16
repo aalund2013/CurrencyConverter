@@ -1,8 +1,9 @@
 
 // include api for currency change
-const base_api_url = "https://api.exchangerate-api.com/v6";// when user clicks, it calls function getResults
+base_url = 'https://currency-converter5.p.rapidapi.com/currency/'
 
-convert.addEventListener("click", getResults);
+// when user clicks, it calls function getResults
+convert.addEventListener("click", getResults('USD',300,'CAD')); // UPDATE TO TAKE THE FORM INPUT
 
 // function getCurrencies
 function getCurrencies() {
@@ -14,11 +15,11 @@ function getCurrencies() {
 		}
 	};
 
-	fetch('https://currency-converter5.p.rapidapi.com/currency/list', options)
+	fetch(base_url + 'list', options)
 		.then(response => response.json())
 		.then(response => console.log(response))
 		.catch(err => console.error(err));
-	return response;
+	return response; // USE THIS RESPONSE TO POPULATE THE DROP DOWN LIST OF CURRENCY OPTIONS
 }
 
 // function getResults
@@ -30,20 +31,15 @@ function getResults(from, to, amount) {
 			'X-RapidAPI-Host': 'currency-converter5.p.rapidapi.com'
 		}
 	};
-	fetchUrl = 'https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from='+from+'&to='+to+'&amount='+amount
-	
+	fetchUrl = base_url + 'convert?format=json&from=' + from + '&to=' + to + '&amount=' + amount
+
 	fetch(fetchUrl, options)
 		.then(response => response.json())
 		.then(response => console.log(response))
 		.catch(err => console.error(err));
-}
 
-// function getResults() {
-// 	fetch(`${api}`)
-// 		.then(currency => {
-// 			return currency.json();
-// 		}).then(displayResults);
-// }
+	return response // DISPLAY AS RESULT
+}
 
 // display results after conversion
 function displayResults(currency) {
