@@ -1,9 +1,31 @@
 
 // include api for currency change
 base_url = 'https://currency-converter5.p.rapidapi.com/currency/'
-
+// const convert = document.getElementsByClassName("convert-button")
+// console.log(convert)
 // when user clicks, it calls function getResults
-convert.addEventListener("click", getResults('USD',300,'CAD')); // UPDATE TO TAKE THE FORM INPUT
+// const fromCurrency = 
+document.addEventListener("submit", function(e) {
+	e.preventDefault()
+	const currencyForm = document.querySelector('#currency-form')
+	const from = document.querySelector('#from-currency')
+	const to = document.querySelector('#to-currency')
+	const amount = document.querySelector('#from-amount')
+	const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': '77b84280a7msh7f71046025a9fcap133d5djsnff7dc983b150',
+			'X-RapidAPI-Host': 'currency-converter5.p.rapidapi.com'
+		}
+	};
+	fetchUrl = base_url + 'convert?format=json&from=' + from + '&to=' + to + '&amount=' + amount
+
+	fetch(fetchUrl, options)
+		.then(response => response.json())
+		.then(response => displayResults(response))
+		.catch(err => console.error(err));
+}); // UPDATE TO TAKE THE FORM INPUT
+
 
 // function getCurrencies
 function getCurrencies() {
@@ -23,31 +45,34 @@ function getCurrencies() {
 }
 
 // function getResults
-function getResults(from, to, amount) {
-	const options = {
-		method: 'GET',
-		headers: {
-			'X-RapidAPI-Key': '77b84280a7msh7f71046025a9fcap133d5djsnff7dc983b150',
-			'X-RapidAPI-Host': 'currency-converter5.p.rapidapi.com'
-		}
-	};
-	fetchUrl = base_url + 'convert?format=json&from=' + from + '&to=' + to + '&amount=' + amount
+// function getResults() {
+// 	const currencyForm = document.querySelector('#currency-form')
+// 	const from = currencyForm.from-currency.value
+// 	const to = currencyForm.to-currency.value
+// 	const amount = currencyForm.from-amount.value
+// 	const options = {
+// 		method: 'GET',
+// 		headers: {
+// 			'X-RapidAPI-Key': '77b84280a7msh7f71046025a9fcap133d5djsnff7dc983b150',
+// 			'X-RapidAPI-Host': 'currency-converter5.p.rapidapi.com'
+// 		}
+// 	};
+// 	fetchUrl = base_url + 'convert?format=json&from=' + from + '&to=' + to + '&amount=' + amount
 
-	fetch(fetchUrl, options)
-		.then(response => response.json())
-		.then(response => console.log(response))
-		.catch(err => console.error(err));
+// 	fetch(fetchUrl, options)
+// 		.then(response => response.json())
+// 		.then(response => displayResults(response))
+// 		.catch(err => console.error(err));
 
-	return response // DISPLAY AS RESULT
-}
+// 	 // DISPLAY AS RESULT
+// }
 
 // display results after conversion
-function displayResults(currency) {
-	let fromRate = currency.rates[resultFrom];
-	let toRate = currency.rates[resultTo];
+function displayResults(value) {
+	const finalValue = document.getElementById("to-amount")
 	finalValue.innerHTML =
-	((toRate / fromRate) * searchValue).toFixed(2);
-	finalAmount.style.display = "block";
+	value
+	finalValue.style.display = "block";
 }
 
 // when user click on reset button
@@ -57,4 +82,4 @@ function clearVal() {
 };
 
 
-document.querySelector('.home-content').innerHTML = CurrencyForm();
+// document.querySelector('.home-content').innerHTML = CurrencyForm();
