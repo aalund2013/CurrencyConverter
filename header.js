@@ -42,5 +42,6 @@ const renderHeader = () => {
 `
 );}
 
+
 document.querySelector('.home-header').innerHTML = renderHeader();
 document.querySelector('.btn-theme').addEventListener('click', setTheme);

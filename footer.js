@@ -1,3 +1,13 @@
+const createThemLocalstorage = () => {
+    if (!localStorage.getItem('them')) {
+        localStorage.setItem('them', 'light');
+    }
+}
+
+(function(){
+    createThemLocalstorage();
+})();
+
 const getTheme = () => {
     return localStorage.getItem('them');
 }
