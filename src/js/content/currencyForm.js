@@ -11,7 +11,6 @@ document.addEventListener('submit', function (e) {
   const from = fromEl.value;
   const to = toEl.value;
   const amount = amountEl.value;
-  debugger;
   const options = {
     method: 'GET',
     headers: {
@@ -70,10 +69,10 @@ const getCurrencyList = async (currencies) => {
     // console.log(`${key} ${currencies[key]}`);
     document.querySelector(
       '#from-currency'
-    ).innerHTML += `<option value="${currencies[key]}">${key}</option>`;
+    ).innerHTML += `<option value="${key}">${key}</option>`;
     document.querySelector(
       '#to-currency'
-    ).innerHTML += `<option value="${currencies[key]}">${key}</option>`;
+    ).innerHTML += `<option value="${key}">${key}</option>`;
   }
 };
 getCurrencies();
