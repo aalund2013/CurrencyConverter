@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link rel="icon" href="favicon-16x16.png">
+	<link rel="stylesheet" href="main.css">
+
+	<title>Currency Converter</title>
+
+</head>
+
+<body>
+
+	<header class="home-header">
+		<!-- Here will be the header  -->
+	</header>
+	<main class="home-content">
+		<!-- form content -->
+		<div class="currency-form-wrapper">
+			<form class="currency-form">
+				<h4>From: </h4>
+				<select name="from-currency" id="from-currency">
+
+				</select>
+
+				<h4>Amount: </h4>
+				<input type="number" name="from-amount" id="from-amount" min="0" step="0.01" value="0">
+
+				<h4>To: </h4>
+				<select name="to-currency" id="to-currency">
+
+				</select>
+				<button class="convert-button" type="submit">Convert</button>
+				<!-- reset button -->
+				<button class="btn-primary " onclick="clearVal()">
+					Reset
+				</button>
+				<!-- Display the converted amount -->
+				<h4 class="result-header">Result: </h4>
+				<input type="number" name="to-amount" id="to-amount" min="0" step="0.01" value="0" readonly>
+			</form>
+		</div>
+	</main>
+	<footer class="home-footer">
+		<!-- Footer -->
+	</footer>
+
+	<script src="header.js"></script>
+	<script src="currencyForm.js"></script>
+	<script src="footer.js"></script>
+</body>
+
+</html>
