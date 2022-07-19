@@ -29,7 +29,7 @@
 					<form class="currency-form">
 						<h4>From: </h4>
 						<select name="from-currency" id="from-currency">
-							<option value="USD">USD</option>
+							<!-- <option value="USD">USD</option>
 							<option value="AED">AED</option>
 							<option value="ARS">ARS</option>
 							<option value="AUD">AUD</option>
@@ -80,7 +80,7 @@
 							<option value="TWD">TWD</option>
 							<option value="UAH">UAH</option>
 							<option value="UYU">UYU</option>
-							<option value="ZAR">ZAR</option>
+							<option value="ZAR">ZAR</option> -->
 						</select>
 
 						<h4>Amount: </h4>
@@ -88,7 +88,7 @@
 
 						<h4>To: </h4>
 						<select name="to-currency" id="to-currency">
-							<option value="USD">USD</option>
+							<!-- <option value="USD">USD</option>
 							<option value="AED">AED</option>
 							<option value="ARS">ARS</option>
 							<option value="AUD">AUD</option>
@@ -139,25 +139,21 @@
 							<option value="TWD">TWD</option>
 							<option value="UAH">UAH</option>
 							<option value="UYU">UYU</option>
-							<option value="ZAR">ZAR</option>
+							<option value="ZAR">ZAR</option> -->
 						</select>
 						<button class="convert-button" type="submit">Convert</button>
+						<!-- reset button -->
+						<button class="btn btn-primary " onclick="clearVal()">
+							Reset
+						</button>
+						<!-- Display the converted amount -->
+						<h4 class="result-header">Result: </h4>
+						<input type="number" name="to-amount" id="to-amount" min="0" step="0.01" value="0" readonly>
 					</form>
 				</div>
 			</div>
-
-			<!-- reset button -->
-			<button class="btn btn-primary " onclick="clearVal()">
-				Reset
-			</button>
-			<!-- Display the converted amount -->
-			<h4 class="result-header">Result: </h4>
-			<input type="number" name="to-amount" id="to-amount" min="0" step="0.01" value="0" readonly>
-
 		</div>
-
 	</main>
-
 	<footer class="home-footer">
 		<!-- Footer -->
 	</footer>

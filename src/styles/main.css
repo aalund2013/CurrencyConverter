@@ -40,9 +40,9 @@ hr {
     display: flex;
     background-color: #282a3e;
     flex-direction: column;
-    width: 60%;
+    width: 70%;
     height: 400px;
-    margin: 0 auto;
+    margin-left: 100px;
     justify-content: center;
     align-items: center;
 }
@@ -66,10 +66,11 @@ hr {
     padding: 15px;
 }
 
-.convert-button  {
+button  {
     border-radius: 5px;
     padding: 8px 20px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Footer */
