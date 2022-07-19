@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .home-content {
@@ -29,22 +30,18 @@ body {
     width: 60px;
     margin-right: 20px;
 }
-hr {
-	border-top: 2px solid black;
-	width: 40%;
-	margin-bottom: 55px;
-}
+
 /* form */
 
 .currency-form-wrapper {
     display: flex;
     background-color: #282a3e;
     flex-direction: column;
-    width: 70%;
+    width: 50%;
     height: 400px;
-    margin-left: 100px;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .currency-form {
@@ -52,7 +49,7 @@ hr {
     color: bisque;
     grid-template-columns: 1fr 1fr;
     width: 80%;
-    height: 60%;
+    height: 90%;
     align-items: center;
     text-align: center;
 }
@@ -82,4 +79,12 @@ button  {
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
