@@ -1,3 +1,22 @@
+import axios from "axios";
+
+const getCurrency = async () => {
+    let response = await axios.get("https://api.exchangerate-api.com/v4/latest/USD");
+    let currencies = response.data.rates;
+
+    for (const key in currencies) {
+        // console.log(`${key} ${currencies[key]}`);
+        document.querySelector("#from-currency").innerHTML += `<option value="${currencies[key]}">${key}</option>`;
+        document.querySelector("#to-currency").innerHTML += `<option value="${currencies[key]}">${key}</option>`;
+
+    }
+
+}
+getCurrency();
+
+
+
+
 const CurrencyForm = () => {
     return (
 `
@@ -5,15 +24,7 @@ const CurrencyForm = () => {
     <form class="currency-form">
         <h4>From: </h4>
         <select name="from-currency" id="from-currency">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
-            <option value="CAD">CAD</option>
-            <option value="JPY">JPY</option>
-            <option value="AUD">AUD</option>
-            <option value="CNY">CNY</option>
-            <option value="INR">INR</option>
-            <option value="MXN">MXN</option>
+
         </select>
 
         <h4>Amount: </h4>
@@ -21,15 +32,7 @@ const CurrencyForm = () => {
 
         <h4>To: </h4>
         <select name="to-currency" id="to-currency">
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="GBP">GBP</option>
-            <option value="CAD">CAD</option>
-            <option value="JPY">JPY</option>
-            <option value="AUD">AUD</option>
-            <option value="CNY">CNY</option>
-            <option value="INR">INR</option>
-            <option value="MXN">MXN</option>
+
         </select>
 
         <h4 class="result-header">Result: </h4>
@@ -41,4 +44,15 @@ const CurrencyForm = () => {
 `
 );}
 
+const btnConvertion = () => {
+    let fromCurrency = document.querySelector("#from-currency").value;
+    let incomingAmount = document.querySelector("#from-amount").value;
+    let toCurrency = document.querySelector("#to-currency").value;
+    console.log(fromCurrency, incomingAmount, toCurrency);
+    let result = incomingAmount * toCurrency;
+    document.querySelector("#to-amount").value = result;    
+}
+
 document.querySelector('.home-content').innerHTML = CurrencyForm();
+document.querySelector(".convert-button").addEventListener("click", btnConvertion);
+
