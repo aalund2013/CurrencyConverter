@@ -11,11 +11,9 @@ module.exports = {
     clean: true,
     htmlFragments: true,
   },
-  experiments: {
     optimize: {
       // 'bundle': true,
       minify: true,
       target: "es2015",
-    },
   },
 };
