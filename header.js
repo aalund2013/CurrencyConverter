@@ -6,6 +6,10 @@ const createThemLocalstorage = () => {
     }
 }
 
+(function(){
+    createThemLocalstorage();
+})();
+
 const getTheme = () => {
     return localStorage.getItem('them');
 }
@@ -37,8 +41,6 @@ const renderHeader = () => {
 </div>
 `
 );}
-
-createThemLocalstorage();
 
 document.querySelector('.home-header').innerHTML = renderHeader();
 document.querySelector('.btn-theme').addEventListener('click', setTheme);
